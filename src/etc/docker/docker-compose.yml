@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+
+  consent:
+    image: covid:latest
+    build:
+         context: D:\workspace/covid/
+         dockerfile: Dockerfile
+    ports:
+      - 8082:8082
+    restart: unless-stopped
+  
+  grafana:
+    image: grafana/grafana:5.4.3
+    ports:
+      - 3000:3000
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    networks:
+      - intranet
+  prometheus:
+    image: prom/prometheus:v2.6.1
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - intranet

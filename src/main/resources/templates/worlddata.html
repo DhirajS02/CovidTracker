@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<link th:href="@{/covid-api/covid-api/main.css}" rel="stylesheet" />
+<title>Spring Boot Application</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+</head>
+<body>
+	<div class="worldcasesmain">
+		<div class="worldcasesdiv1">
+			<table id="totalWorldCases">
+				<tr>
+					<th>Confirmed</th>
+					<th>Active</th>
+					<th>Recovered</th>
+					<th>Deceased</th>
+				</tr>
+				<tr>
+					<td><span th:text="${totalCases.confirmed}"></span></td>
+					<td><span th:text="${totalCases.active}"></span></td>
+					<td><span th:text="${totalCases.recovered}"></span></td>
+					<td><span th:text="${totalCases.deceased}"></span></td>
+				</tr>
+			</table>
+		</div>
+			<table id="totalCountryCases">
+				<tr>
+					<th>Country</th>
+					<th>Confirmed</th>
+					<th>Active</th>
+					<th>Recovered</th>
+					<th>Deceased</th>
+
+				</tr>
+				<tr th:each="cases : ${countrycases}">
+					<td><span th:text="${cases.country}"> Country </span></td>
+					<td><span th:text="${cases.confirmed}"> Confirmed </span></td>
+					<td><span th:text="${cases.active}"> Active </span></td>
+					<td><span th:text="${cases.recovered}"> Recovered </span></td>
+					<td><span th:text="${cases.deceased}"> Deceased </span></td>
+				</tr>
+			</table>			
+		</div>
+	</div>
+</body>
+</html>

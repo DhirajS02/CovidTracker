@@ -1,0 +1,570 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: black;
+}
+
+main {
+	width: 90%;
+	height: auto;
+	margin: 50px auto;
+	display: grid;
+	grid-template-rows: 80px 120px 720px 600px 150px;
+	/*grid-template-columns: repeat( auto-fit, minmax(700px, 1fr) );*/
+	grid-template-columns: repeat(2, 1fr);
+	grid-row-gap: 50px;
+	grid-column-gap: 30px;
+}
+
+.div1 {
+	grid-column: 1/-1;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: black;
+}
+
+.div2 {
+	/*background-color:blue;
+     grid-row:2/5*/;
+	
+}
+
+.div3 {
+	grid-row: 3/4;
+	grid-column: 1/2;
+}
+
+.div4 {
+	/*background-color: yellow;*/
+	grid-row: 2/5;
+	grid-column: 2/3;
+	color: black;
+}
+
+.div5 {
+	background-color: #DCDCDC;
+	grid-row: 5/6;
+	grid-column: 1/-1;;
+}
+
+.div3_1 {
+	width: 100%;
+	height: 5%;
+}
+
+.div3_2 {
+	width: 100%;
+	height: 95%;
+}
+
+.div4_1 {
+	width: 100%;
+	height: 50%;
+	color: black;
+	/*background-color: orange;*/
+}
+
+.div4_2 {
+	width: 100%;
+	height: 25%;
+	color: black;
+	/*background-color: red;*/
+}
+
+.div4_3 {
+	width: 100%;
+	height: 25%;
+	color: black;
+	/*background-color: yellow;*/
+}
+
+.div5_1 {
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	color: black;
+}
+.div5_1 h2
+{
+	margin-left: 650px;
+	color: black;
+	
+}
+.subscribe
+{
+	
+  background-color: white;
+  margin-left: 710px;
+  padding: 10px;
+  /*margin-left: 200px;*/
+  width:80px;
+  background-color: #4CAF50;
+  border: none;
+  color: black;
+}
+.unsubscribe
+{
+	
+  background-color: white;
+  padding: 10px;
+    width:100px;
+  
+ /* margin-left: 400px;*/
+  background-color: #4CAF50;
+  border: none;
+  color: black;
+}
+#emailsubs
+{
+	 margin-top: 10px;
+	 margin-left: 700px;
+	 padding: 10px;
+}
+
+#showtable {
+	margin-left: 220px;
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 10px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.div1 nav {
+	width: 600px;
+	display: flex;
+	justify-content: space-between;
+	align-items: left;
+	padding-bottom: 10px;
+	margin-right: 300px;
+	font-weight: 800;
+	font-size: 20px;
+}
+
+.div1 nav a {
+	text-decoration: none;
+	color: black;
+	text-transform: uppercase;
+}
+
+.div1 .logo {
+	color: blue;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+#totalCases, #displaytable, #totalWorldCases, #totalCountryCases {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	height: 100%;
+}
+
+#totalCases td, #totalCases th, #displaytable td, #displaytable th,
+	#totalWorldCases td, #totalWorldCases th, #totalCountryCases td, #totalCountryCases th{
+	border: 2px solid #dddddd;
+	padding: 4px;
+}
+
+#totalCases tr:nth-child(even) {
+	background-color: #4169E1;
+}
+
+#totalCases tr:hover {
+	background-color: #A9A9A9;
+}
+
+#displaytable tr{
+	background-color: #4169E1;
+}
+
+#displaytable tr:hover {
+	background-color: #A9A9A9;
+}
+
+#totalWorldCases tr {
+	background-color: #4169E1;
+}
+
+#totalWorldCases tr:hover {
+	background-color: #A9A9A9;
+}
+#totalCountryCases tr{
+	background-color: #4169E1;
+}
+
+#totalCountryCases tr:hover {
+	background-color: #A9A9A9;
+}
+#totalCases th, #displaytable th, #totalWorldCases th, #totalCountryCases th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: center;
+	background-color: #4CAF50;
+	color: black;
+}
+
+.main {
+	width: 95%;
+	height: auto;
+	margin: 20px auto;
+	display: grid;
+	grid-template-rows: 600px 600px 600px 600px 600px 600px 600px 600px
+		600px 600px;
+	/*grid-template-columns: repeat( auto-fit, minmax(700px, 1fr) );*/
+	grid-template-columns: repeat(2, 1fr);
+	grid-row-gap: 60px;
+	grid-column-gap: 30px;
+}
+
+.analyticsdiv1_1 {
+	width: 100%;
+	height: 10%;
+	color: black;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: 900;
+	padding-left: 250px;
+	padding-top: 20px;
+}
+
+.analyticsdiv1_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.analyticsdiv2 {
+	background-color: blue;
+}
+
+.analyticsdiv2_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.analyticsdiv2_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.analyticsdiv3 {
+	background-color: yellow;
+}
+
+.analyticsdiv3_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.analyticsdiv3_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.analyticsdiv4 {
+	background-color: green;
+}
+
+.analyticsdiv4_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.analyticsdiv4_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.analyticsdiv5 {
+	background-color: orange;
+}
+
+.analyticsdiv5_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.analyticsdiv5_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.analyticsdiv6 {
+	background-color: blue;
+}
+
+.analyticsdiv6_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.analyticsdiv6_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.analyticsdiv7 {
+	background-color: yellow;
+}
+
+.analyticsdiv7_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.analyticsdiv7_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.analyticsdiv8 {
+	background-color: green;
+}
+
+.analyticsdiv8_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.analyticsdiv8_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.analyticsdiv9 {
+	background-color: pink;
+}
+
+.analyticsdiv9_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.analyticsdiv9_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.analyticsdiv10 {
+	background-color: yellow;
+}
+
+.analyticsdiv10_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.analyticsdiv10_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.analyticsdiv1_2 img {
+	width: 100%;
+	max-height: 100%;
+	display: block;
+}
+
+.worldanalyticsdiv1_1 {
+	width: 100%;
+	height: 10%;
+	color: black;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: 900;
+	padding-left: 250px;
+	padding-top: 20px;
+}
+
+.worldanalyticsdiv1_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.worldanalyticsdiv2_1 {
+	width: 100%;
+	height: 10%;
+	color: black;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: 900;
+	padding-left: 250px;
+	padding-top: 20px;
+}
+
+.worldanalyticsdiv2_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.worldanalyticsdiv3 {
+	background-color: yellow;
+}
+
+.worldanalyticsdiv3_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.worldanalyticsdiv3_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.worldanalyticsdiv4 {
+	background-color: green;
+}
+
+.worldanalyticsdiv4_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.worldanalyticsdiv4_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.worldanalyticsdiv5 {
+	background-color: orange;
+}
+
+.analyticsdiv5_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.worldanalyticsdiv5_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.worldanalyticsdiv6 {
+	background-color: blue;
+}
+
+.worldanalyticsdiv6_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.worldanalyticsdiv6_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.worldanalyticsdiv7 {
+	background-color: yellow;
+}
+
+.worldanalyticsdiv7_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.worldanalyticsdiv7_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.worldanalyticsdiv8 {
+	background-color: green;
+}
+
+.worldanalyticsdiv8_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.worldanalyticsdiv8_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.worldanalyticsdiv9 {
+	background-color: pink;
+}
+
+.worldanalyticsdiv9_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.analyticsdiv9_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.worldanalyticsdiv10 {
+	background-color: yellow;
+}
+
+.worldanalyticsdiv10_1 {
+	width: 100%;
+	height: 10%;
+	background-color: black;
+}
+
+.worldanalyticsdiv10_2 {
+	width: 100%;
+	height: 90%;
+}
+
+.worldanalyticsdiv1_2 img {
+	width: 100%;
+	max-height: 100%;
+	display: block;
+}
+
+.worldanalyticsdiv2_2 img {
+	width: 100%;
+	max-height: 100%;
+	display: block;
+	margin-top: 10px;
+}
+
+.worldcasesdiv1 {
+	color: black;
+	margin-right: 300px;
+	margin-left: 300px;
+	
+}
+
+.worldcasesdiv2 {
+	color: black;
+	margin-right:300px;
+	margin-left: 300px;
+	
+}
+.worldcasesmain {
+	width: 95%;
+	height: auto;
+	margin: 20px auto;
+	display: grid;
+	grid-template-rows: 120px 840px;
+	/*grid-template-columns: repeat( auto-fit, minmax(700px, 1fr) );*/
+	grid-row-gap: 60px;
+}

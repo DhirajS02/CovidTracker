@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<link th:href="@{/covid-api/covid-api/main.css}" rel="stylesheet" />
+<title>Spring Boot Application</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	//$(document).ready(function(){
+	//$("#showtable").click(function(){
+	$.get("http://localhost:8763/covid-api/total/corona/state", function(data, status) {
+		for (var i = 0; i < data.length; i++) {
+			var obj = data[i];
+			var state = obj.state;
+			if (state === "") {
+				// string is empty, do something
+			} else {
+
+				//console.log("type is"+state);
+				var confirmed = obj.confirmed;
+				var active = obj.active;
+				var recovered = obj.recovered;
+				var deceased = obj.deceased;
+				var stateConfirmed = state + "Confirmed";
+				var stateActive = state + "Active";
+				var stateRecovered = state + "Recovered";
+				var stateDeceased = state + "Deceased";
+				document.getElementById(stateConfirmed).innerHTML = confirmed;
+				document.getElementById(stateActive).innerHTML = active;
+				document.getElementById(stateRecovered).innerHTML = recovered;
+				document.getElementById(stateDeceased).innerHTML = deceased;
+				//console.log("state is"+state+"confirmed is"+confirmed+"active is"+active+"recovered is"+recovered+"deceased is"+deceased+"stateConfirmed is"+stateConfirmed+"stateActive is"+stateActive+"stateRecovered is"+stateRecovered+"stateDeceased is"+stateDeceased);
+				//alert("state is"+state+"confirmed is"+confirmed+"active is"+active+"recovered is"+recovered+"deceased is"+deceased+"stateConfirmed is"+stateConfirmed+"stateActive is"+stateActive+"stateRecovered is"+stateRecovered+"stateDeceased is"+stateDeceased);
+			}
+		}
+	});
+	// $("#displaytable").toggle();
+
+	//});
+	//});
+</script>
+</head>
+<body>
+	<main>
+		<div class="div1">
+			<div class="logo">
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspA<br>CovidTracker<br>&nbsp&nbsp&nbsp&nbsp&nbsp
+				App
+			</div>
+			<div>
+				<nav>
+					<a th:href="@{/covid-api/analytics/}">Analytics</a> <a
+						th:href="@{/covid-api/worldanalytics/}">World Vs India</a> <a
+						th:href="@{/covid-api/getWorldValues/corona/}">GlobalData</a>
+				</nav>
+			</div>
+
+		</div>
+		<div class="div2">
+			<table id="totalCases">
+				<tr>
+					<th>Confirmed</th>
+					<th>Active</th>
+					<th>Recovered</th>
+					<th>Deceased</th>
+				</tr>
+				<tr>
+					<td><span th:text="${totalDto.confirmed}"></span></td>
+					<td><span th:text="${totalDto.active}"></span></td>
+					<td><span th:text="${totalDto.recovered}"></span></td>
+					<td><span th:text="${totalDto.deceased}"></span></td>
+				</tr>
+			</table>
+
+
+
+		</div>
+		<div class="div3">
+			<div class="div3_1"></div>
+			<div class="div3_2">
+				<table id="displaytable">
+					<tr align="center">
+						<th>States/Ut</th>
+						<th>Confirmed</th>
+						<th>Active</th>
+						<th>Recovered</th>
+						<th>Deceased</th>
+					</tr>
+
+					<tr align="center">
+						<td id="Delhi">Delhi</td>
+						<td id="DelhiConfirmed"></td>
+						<td id="DelhiActive"></td>
+						<td id="DelhiRecovered"></td>
+						<td id="DelhiDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Bihar">Bihar</td>
+						<td id="BiharConfirmed"></td>
+						<td id="BiharActive"></td>
+						<td id="BiharRecovered"></td>
+						<td id="BiharDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Gujarat">Gujarat</td>
+						<td id="GujaratConfirmed"></td>
+						<td id="GujaratActive"></td>
+						<td id="GujaratRecovered"></td>
+						<td id="GujaratDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Assam">Assam</td>
+						<td id="AssamConfirmed"></td>
+						<td id="AssamActive"></td>
+						<td id="AssamRecovered"></td>
+						<td id="AssamDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Telangana">Telangana</td>
+						<td id="TelanganaConfirmed"></td>
+						<td id="TelanganaActive"></td>
+						<td id="TelanganaRecovered"></td>
+						<td id="TelanganaDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Andhra Pradesh">Andhra Pradesh</td>
+						<td id="Andhra PradeshConfirmed"></td>
+						<td id="Andhra PradeshActive"></td>
+						<td id="Andhra PradeshRecovered"></td>
+						<td id="Andhra PradeshDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Madhya Pradesh">Madhya Pradesh</td>
+						<td id="Madhya PradeshConfirmed"></td>
+						<td id="Madhya PradeshActive"></td>
+						<td id="Madhya PradeshRecovered"></td>
+						<td id="Madhya PradeshDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Jammu and Kashmir">Jammu and Kashmir</td>
+						<td id="Jammu and KashmirConfirmed"></td>
+						<td id="Jammu and KashmirActive"></td>
+						<td id="Jammu and KashmirRecovered"></td>
+						<td id="Jammu and KashmirDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Tamil Nadu">Tamil Nadu</td>
+						<td id="Tamil NaduConfirmed"></td>
+						<td id="Tamil NaduActive"></td>
+						<td id="Tamil NaduRecovered"></td>
+						<td id="Tamil NaduDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Dadra and Nagar Haveli and Daman and Diu">Dadra and
+							Nagar Haveli and Daman and Diu</td>
+						<td id="Dadra and Nagar Haveli and Daman and DiuConfirmed"></td>
+						<td id="Dadra and Nagar Haveli and Daman and DiuActive"></td>
+						<td id="Dadra and Nagar Haveli and Daman and DiuRecovered"></td>
+						<td id="Dadra and Nagar Haveli and Daman and DiuDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Puducherry">Puducherry</td>
+						<td id="PuducherryConfirmed"></td>
+						<td id="PuducherryActive"></td>
+						<td id="PuducherryRecovered"></td>
+						<td id="PuducherryDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Chhattisgarh">Chhattisgarh</td>
+						<td id="ChhattisgarhConfirmed"></td>
+						<td id="ChhattisgarhActive"></td>
+						<td id="ChhattisgarhRecovered"></td>
+						<td id="ChhattisgarhDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Karnataka">Karnataka</td>
+						<td id="KarnatakaConfirmed"></td>
+						<td id="KarnatakaActive"></td>
+						<td id="KarnatakaRecovered"></td>
+						<td id="KarnatakaDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Mizoram">Mizoram</td>
+						<td id="MizoramConfirmed"></td>
+						<td id="MizoramActive"></td>
+						<td id="MizoramRecovered"></td>
+						<td id="MizoramDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Andaman and Nicobar Islands">Andaman and Nicobar
+							Islands</td>
+						<td id="Andaman and Nicobar IslandsConfirmed"></td>
+						<td id="Andaman and Nicobar IslandsActive"></td>
+						<td id="Andaman and Nicobar IslandsRecovered"></td>
+						<td id="Andaman and Nicobar IslandsDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Goa">Goa</td>
+						<td id="GoaConfirmed"></td>
+						<td id="GoaActive"></td>
+						<td id="GoaRecovered"></td>
+						<td id="GoaDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Ladakh">Ladakh</td>
+						<td id="LadakhConfirmed"></td>
+						<td id="LadakhActive"></td>
+						<td id="LadakhRecovered"></td>
+						<td id="LadakhDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Odisha">Odisha</td>
+						<td id="OdishaConfirmed"></td>
+						<td id="OdishaActive"></td>
+						<td id="OdishaRecovered"></td>
+						<td id="OdishaDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="West Bengal">West Bengal</td>
+						<td id="West BengalConfirmed"></td>
+						<td id="West BengalActive"></td>
+						<td id="West BengalRecovered"></td>
+						<td id="West BengalDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Maharashtra">Maharashtra</td>
+						<td id="MaharashtraConfirmed"></td>
+						<td id="MaharashtraActive"></td>
+						<td id="MaharashtraRecovered"></td>
+						<td id="MaharashtraDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="State Unassigned">State Unassigned</td>
+						<td id="State UnassignedConfirmed"></td>
+						<td id="State UnassignedActive"></td>
+						<td id="State UnassignedRecovered"></td>
+						<td id="State UnassignedDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Kerala">Kerala</td>
+						<td id="KeralaConfirmed"></td>
+						<td id="KeralaActive"></td>
+						<td id="KeralaRecovered"></td>
+						<td id="KeralaDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Chandigarh">Chandigarh</td>
+						<td id="ChandigarhConfirmed"></td>
+						<td id="ChandigarhActive"></td>
+						<td id="ChandigarhRecovered"></td>
+						<td id="ChandigarhDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Sikkim">Sikkim</td>
+						<td id="SikkimConfirmed"></td>
+						<td id="SikkimActive"></td>
+						<td id="SikkimRecovered"></td>
+						<td id="SikkimDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Punjab">Punjab</td>
+						<td id="PunjabConfirmed"></td>
+						<td id="PunjabActive"></td>
+						<td id="PunjabRecovered"></td>
+						<td id="PunjabDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Meghalaya">Meghalaya</td>
+						<td id="MeghalayaConfirmed"></td>
+						<td id="MeghalayaActive"></td>
+						<td id="MeghalayaRecovered"></td>
+						<td id="MeghalayaDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Rajasthan">Rajasthan</td>
+						<td id="RajasthanConfirmed"></td>
+						<td id="RajasthanActive"></td>
+						<td id="RajasthanRecovered"></td>
+						<td id="RajasthanDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Uttar Pradesh">Uttar Pradesh</td>
+						<td id="Uttar PradeshConfirmed"></td>
+						<td id="Uttar PradeshActive"></td>
+						<td id="Uttar PradeshRecovered"></td>
+						<td id="Uttar PradeshDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Tripura">Tripura</td>
+						<td id="TripuraConfirmed"></td>
+						<td id="TripuraActive"></td>
+						<td id="TripuraRecovered"></td>
+						<td id="TripuraDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Jharkhand">Jharkhand</td>
+						<td id="JharkhandConfirmed"></td>
+						<td id="JharkhandActive"></td>
+						<td id="JharkhandRecovered"></td>
+						<td id="JharkhandDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Haryana">Haryana</td>
+						<td id="HaryanaConfirmed"></td>
+						<td id="HaryanaActive"></td>
+						<td id="HaryanaRecovered"></td>
+						<td id="HaryanaDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Uttarakhand">Uttarakhand</td>
+						<td id="UttarakhandConfirmed"></td>
+						<td id="UttarakhandActive"></td>
+						<td id="UttarakhandRecovered"></td>
+						<td id="UttarakhandDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Himachal Pradesh">Himachal Pradesh</td>
+						<td id="Himachal PradeshConfirmed"></td>
+						<td id="Himachal PradeshActive"></td>
+						<td id="Himachal PradeshRecovered"></td>
+						<td id="Himachal PradeshDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Arunachal Pradesh">Arunachal Pradesh</td>
+						<td id="Arunachal PradeshConfirmed"></td>
+						<td id="Arunachal PradeshActive"></td>
+						<td id="Arunachal PradeshRecovered"></td>
+						<td id="Arunachal PradeshDeceased"></td>
+					</tr>
+					<tr align="center">
+						<td id="Manipur">Manipur</td>
+						<td id="ManipurConfirmed"></td>
+						<td id="ManipurActive"></td>
+						<td id="ManipurRecovered"></td>
+						<td id="ManipurDeceased"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="div4">
+			<div class=div4_1></div>
+			<div class=div4_2></div>
+			<div class=div4_3></div>
+		</div>
+		<div class="div5">
+			<div class=div5_1>
+			<h2>Subscribe to Daily Updates</h2>
+			    <input type="email" id="emailsubs" placeholder="Email address"> <br> <br>
+			    <input type="button" value="Subscribe" id="subscribe" class="subscribe"> 
+				<input type="button" value="Unsubscribe" id="unsubscribe" class="unsubscribe">
+				
+			</div>
+		</div>
+	</main>
+	<script>
+		/*$(document).ready(function(){
+		 $("#showtable").click(function(){
+		 $.get("http://localhost:8082/total/corona/state", function(data, status){
+		 for(var i = 0; i < data.length; i++) {
+		 var obj = data[i];
+		 var state=obj.state;
+		 if(state === ""){
+		 // string is empty, do something
+		 }
+		 else
+		 {
+		
+		 //console.log("type is"+state);
+		 var confirmed=obj.confirmed;
+		 var active=obj.active;
+		 var recovered=obj.recovered;
+		 var deceased=obj.deceased;
+		 var stateConfirmed=state+"Confirmed";
+		 var stateActive=state+"Active";
+		 var stateRecovered=state+"Recovered";
+		 var stateDeceased=state+"Deceased";
+		 document.getElementById(stateConfirmed).innerHTML=confirmed;
+		 document.getElementById(stateActive).innerHTML=active;
+		 document.getElementById(stateRecovered).innerHTML=recovered;
+		 document.getElementById(stateDeceased).innerHTML=deceased;
+		 //console.log("state is"+state+"confirmed is"+confirmed+"active is"+active+"recovered is"+recovered+"deceased is"+deceased+"stateConfirmed is"+stateConfirmed+"stateActive is"+stateActive+"stateRecovered is"+stateRecovered+"stateDeceased is"+stateDeceased);
+		 //alert("state is"+state+"confirmed is"+confirmed+"active is"+active+"recovered is"+recovered+"deceased is"+deceased+"stateConfirmed is"+stateConfirmed+"stateActive is"+stateActive+"stateRecovered is"+stateRecovered+"stateDeceased is"+stateDeceased);
+		 }
+		 }
+		 });
+		 // $("#displaytable").toggle();
+		
+		 });
+		 });*/
+	</script>
+	<script>
+		$(document)
+				.ready(
+						function() {
+							$("#showrate")
+									.click(
+											function() {
+												// $.get("http://localhost:8000/plots/corona_rate/bar_chart", function(data, status){
+												// alert(data);
+												//decodedString = atob(data);
+												//alert(decodedString);
+												// var img = new Image(100,200); 
+												//img.src = 'https://media.geeksforgeeks.org/wp-content/uploads/20190529122828/bs21.png'; 
+												//document.getElementById('coronaimage').innerHTML=img; 
+												//down.innerHTML = "Image Element Added."; 
+												var img = $('<img id="coronarateimage">');
+												img
+														.attr('src',Suscribe
+																'http://localhost:8000/plots/corona_rate/bar_chart');
+												img.appendTo('.div4_2');
+												$("#showrate").attr("disabled",
+														true);
+
+												//img.appendTo('#image1');
+
+												//});
+												//$("#image_div").toggle();
+
+											});
+						});
+	</script>
+	<script>
+		$(document)
+				.ready(
+						function() {
+							$("#subscribe")
+									.click(
+											function() {
+												var email = document.getElementById("emailsubs").value;
+                                                var url="http://localhost:8763/covid-api/getUpdates/"+email;
+                                                $.post(url,  
+                                                	       { }, // data to be submit
+                                                	       function(data, status, jqXHR) {// success callback
+                                                	        })
+                                                
+
+											});
+						});
+	</script>
+	<script>
+		$(document)
+				.ready(
+						function() {
+							$("#unsubscribe")
+									.click(
+											function() {
+												var email = document.getElementById("emailsubs").value;
+                                                var url="http://localhost:8763/covid-api/unsubscribe/"+email;
+                                                $.post(url,  
+                                                	       { }, // data to be submit
+                                                	       function(data, status, jqXHR) {// success callback
+                                                	        })
+                                                
+
+											});
+						});
+	</script>
+
+
+</body>
+</html>
